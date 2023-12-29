@@ -1,0 +1,63 @@
+{
+  "name": "nftmarket",
+  "version": "1.0.0",
+  "description": "A simple decentralized application that performs buying and selling of a particular NFT.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "prestart": "npx hardhat node",
+    "contracts_test": "npx hardhat test .\\test\\market.js",
+    "contracts_coverage": "npx hardhat coverage",
+    "serve": "set PORT=3000 && node app.js",
+    "serve_test": "nodemon app.js",
+    "start": "set PORT=3001 && react-scripts start"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "author": "LadyLex",
+  "license": "ISC",
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^5.0.1",
+    "@testing-library/jest-dom": "^6.1.6",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "axios": "^1.6.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.9.1",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.3",
+    "hardhat": "^2.19.3",
+    "kubo-rpc-client": "^3.0.2",
+    "pnpm": "^8.13.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^3.5.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "hardhat-abi-exporter": "^2.10.1",
+    "nodemon": "^3.0.2",
+    "solidity-coverage": "^0.8.5"
+  }
+}
