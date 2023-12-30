@@ -1,85 +1,47 @@
 # Overview
- A simple decentralized application that performs buying and selling of a particular NFT.
+ A simple decentralized application that performs buying and selling of a particular NFT. This application is separated from the front and back ends. You can test and modify it on your local side.
 
+> The application is currently in the testing phase and has not been deployed on the Ethereum network.
 # Environment
-Smart Contract:
-    - hardhat@2.19.0
-    - solidity^0.8.20
-    - remix-ide
-    - 
+Smart Contract:  
+- hardhat@2.19.3  
+- solidity^0.8.20  
+- remix-ide  
+
+Backend:   
+- pnpm^8.13.1
+- kubo-rpc-client^3.0.2
+- express@4.18.2
+
+Frontend:
+- react@18.2.0
+- ethers@6.9.1
+
+## Project Structure
 ```
 NFTmarket
-├─ .git
-│  ├─ COMMIT_EDITMSG
-│  ├─ config
-│  ├─ description
-│  ├─ FETCH_HEAD
-│  ├─ HEAD
-│  ├─ hooks
-│  │  ├─ applypatch-msg.sample
-│  │  ├─ commit-msg.sample
-│  │  ├─ fsmonitor-watchman.sample
-│  │  ├─ post-update.sample
-│  │  ├─ pre-applypatch.sample
-│  │  ├─ pre-commit.sample
-│  │  ├─ pre-merge-commit.sample
-│  │  ├─ pre-push.sample
-│  │  ├─ pre-rebase.sample
-│  │  ├─ pre-receive.sample
-│  │  ├─ prepare-commit-msg.sample
-│  │  ├─ push-to-checkout.sample
-│  │  └─ update.sample
-│  ├─ index
-│  ├─ info
-│  │  └─ exclude
-│  ├─ logs
-│  │  ├─ HEAD
-│  │  └─ refs
-│  │     └─ heads
-│  │        └─ main
-│  ├─ objects
-│  │  ├─ 16
-│  │  │  └─ b54da6d21fcc4d4d4eaa4b968a5f5a7fda8cd8
-│  │  ├─ 66
-│  │  │  └─ 3bb37ce7d1f8fadcb39ab6fc4398fff93b5d1f
-│  │  ├─ aa
-│  │  │  └─ 8ba9e211e08054f6f238e115953ada4b593358
-│  │  ├─ df
-│  │  │  └─ e0770424b2a19faf507a501ebfc23be8f54e7b
-│  │  ├─ e2
-│  │  │  └─ 0b431bcb69267acc39eaf8fdb94c30f40e3223
-│  │  ├─ info
-│  │  └─ pack
-│  └─ refs
-│     ├─ heads
-│     │  └─ main
-│     └─ tags
-├─ .gitattributes
-├─ .gitignore
 ├─ app.js
-├─ contracts
+├─ contracts                # 主要合约
 │  ├─ erc20_usdt.sol
 │  ├─ erc721_nft.sol
 │  └─ ntf_market.sol
-├─ files
+├─ files                    # 暂存上传的图片
 ├─ hardhat.config.js
-├─ ipfs-upload.js
+├─ ipfs-upload.js           # 上传图片到ipfs
+├─ nft-minter.js            # 发放NFT
 ├─ LICENSE
-├─ nft-minter.js
 ├─ package-lock.json
 ├─ package.json
-├─ public
+├─ public                   # 以下为前端内容
 │  └─ index.html
-├─ README.md
 ├─ src
-│  ├─ abi
+│  ├─ abi                   # 前端需要的合约abi
 │  │  ├─ NFTM.json
 │  │  ├─ NFTMarket.json
 │  │  └─ USDT.json
 │  ├─ App.css
-│  ├─ App.js
-│  ├─ App.test.js
-│  ├─ components
+│  ├─ App.js                # 前端主要逻辑
+│  ├─ components            # 前端组件
 │  │  ├─ HomePage.js
 │  │  ├─ Navbar.js
 │  │  ├─ NFTCard.js
@@ -87,24 +49,44 @@ NFTmarket
 │  │  ├─ OwnedNFTs.js
 │  │  ├─ UploadImage.js
 │  │  └─ UploadSuccess.js
-│  ├─ config.js
-│  ├─ index.css
-│  ├─ index.js
-│  ├─ logo.svg
-│  ├─ reportWebVitals.js
-│  ├─ setupTests.js
-│  ├─ styles
+│  ├─ config.js             # 前端配置
+│  ├─ styles                # 前端样式
 │  │  ├─ ImageDetails.css
 │  │  ├─ Navbar.css
 │  │  ├─ NFTCard.css
 │  │  ├─ ownedCard.css
 │  │  ├─ UploadImage.css
 │  │  └─ UploadSuccess.css
-│  └─ utils
+│  └─ utils                 # 前端工具
 │     ├─ market.js
 │     ├─ nft.js
 │     └─ usdt.js
-└─ test
-   └─ market.js
+├─ test                     # 测试
+│  └─ market.js
+└─ README.md
 
+```
+
+# How to run
+After cloning the repository, run the following commands to install the dependencies:
+
+## Prerequisites
+```bash
+npm install
+```
+
+## Deploy the contract
+You can deploy the contract on the hardhat network on your local side, and then modify the contract address in the frontend configuration file ('/src/config.js') also in the backend configuration file. ('.env')
+```bash
+npm run prestart
+```
+
+## Run the backend
+```bash
+npm run serve
+```
+
+## Run the frontend
+```bash
+npm run start
 ```
